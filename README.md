@@ -1,6 +1,6 @@
 # maestros - Multi-label Stratified Group Splits
 
-`maestros` is a Python library that provides functionality for performing multi-label stratified group splits. This library is particularly useful for machine learning tasks involving multi-label data with grouped samples, where the train and test sets need to be stratified to maintain the label distribution, while ensuring the groups are disjoint. The multi-label stratification is done through the [iterative-stratification](https://github.com/trent-b/iterative-stratification) library.
+`maestros` is a Python library that provides functionality for performing multi-label stratified group splits. This library is particularly useful for machine learning tasks involving multi-label data with grouped samples, where the train and test sets need to be stratified to maintain the label distribution, while ensuring the groups are disjoint. The multi-label stratification is done through the [iterative-stratification](https://github.com/trent-b/iterative-stratification) library. The included stratification chart and report can also be used for multi-label data where samples do not belong to groups.
 
 ## Installation
 
