@@ -144,6 +144,8 @@ Val-Complete: 0.037
 Test-Complete: 0.018
 ```
 
+Stratification chart with validation set included:
+
 ![Stratification Chart](img/stratification_chart_with_val.png)
 
 ## License

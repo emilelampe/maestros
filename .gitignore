@@ -1,2 +1,9 @@
-# Ignore all pychache folders
+# Ignore all pychache directories
 __pycache__
+
+# Ignore build and dist directories
+build
+dist
+
+# Ignore all .egg-info directories
+*.egg-info
