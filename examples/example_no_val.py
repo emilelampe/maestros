@@ -1,4 +1,3 @@
-import pandas as pd
 from maestros.functions import *
 
 # Create multi-label samples, each belonging to one of the 5 groups

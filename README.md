@@ -123,23 +123,24 @@ Stratification report with validation set included:
 
 ```
 Label distribution:
-Label            Complete   Train      Test  
-Beach           0.788      0.789     0.785
-Water           0.788      0.797     0.760
-Tree            0.812      0.802     0.843
-House           0.808      0.813     0.793
-Mountain        0.804      0.799     0.818
+Label            Complete   Train      Val        Test      
+Beach           0.788      0.801     0.750     0.785
+Water           0.788      0.770     0.880     0.760
+Tree            0.812      0.805     0.793     0.843
+House           0.808      0.822     0.783     0.793
+Mountain        0.804      0.801     0.793     0.818
 
 Differences:
-Label            Train-Complete  Test-Complete  
-Beach                0.001          0.003
-Water                0.009          0.028
-Tree                 0.010          0.031
-House                0.005          0.015
-Mountain             0.005          0.014
+Label            Train-Complete  Val-Complete    Test-Complete  
+Beach                0.013          0.038          0.003
+Water                0.018          0.092          0.028
+Tree                 0.007          0.019          0.031
+House                0.014          0.025          0.015
+Mountain             0.003          0.011          0.014
 
 Mean Differences:
-Train-Complete: 0.006
+Train-Complete: 0.011
+Val-Complete: 0.037
 Test-Complete: 0.018
 ```
 
