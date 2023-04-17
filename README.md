@@ -94,7 +94,7 @@ Plot the stratification chart.
 msg_split.create_stratification_chart(y, y_train, y_test, labels=labels)
 ```
 
-![Stratification Chart](https://file+.vscode-resource.vscode-cdn.net/home/emile/dev/multilabel-stratified-group-split/img/stratification_chart.png)
+![Stratification Chart](img/stratification_chart.png)
 
 ### Including Validation Set
 
@@ -143,7 +143,7 @@ Train-Complete: 0.006
 Test-Complete: 0.018
 ```
 
-![Stratification Chart](https://file+.vscode-resource.vscode-cdn.net/home/emile/dev/multilabel-stratified-group-split/img/stratification_chart_with_val.png)
+![Stratification Chart](img/stratification_chart_with_val.png)
 
 ## License
 
