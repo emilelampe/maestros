@@ -64,7 +64,7 @@ Print a stratification report.
 stratification_report(y, y_train, y_test, labels=labels)
 ```
 
-A lower mean difference is a better stratified set. A mean of 0 is perfectly stratified set.
+The label distribution shows the percentage of class '1' samples of the complete, training, (validation) and test set. The difference shows how much the distribution of a set differs from that of the complete set. A mean difference closer to 0 is a better stratified set.
 
 ```
 Label distribution:
@@ -91,14 +91,14 @@ Test-Complete: 0.021
 Plot the stratification chart.
 
 ```
-msg_split.create_stratification_chart(y, y_train, y_test, labels=labels)
+create_stratification_chart(y, y_train, y_test, labels=labels)
 ```
 
 ![Stratification Chart](img/stratification_chart.png)
 
 ### Including Validation Set
 
-To include a validation set, simply execute the `multilabel-stratified-group-split` twice: once to create `train_val` and `test` sets, and once to create a `train`  and `test`  set from `train_val`.
+To include a validation set, simply execute the `multilabel-stratified-group-split` twice: once to create `train_val` and `test` sets, and once to create a `train`  and `test`  set from `train_val`. For the stratification report and chart, include y_val when calling the function.
 
 ```
 # First, split the data into 80% train+val and 20% test
@@ -123,7 +123,7 @@ Stratification report with validation set included:
 
 ```
 Label distribution:
-Label            Complete   Train      Val        Test      
+Label            Complete   Train      Val        Test    
 Beach           0.788      0.801     0.750     0.785
 Water           0.788      0.770     0.880     0.760
 Tree            0.812      0.805     0.793     0.843
