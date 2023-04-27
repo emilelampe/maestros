@@ -15,7 +15,7 @@ groups_train_val = groups[train_val_indices]
 X_train, X_val, y_train, y_val, train_indices, val_indices = multilabel_stratified_group_split(X_train_val, y_train_val, groups[train_val_indices], test_size=0.25, random_state=42, shuffle=True)
 
 # Print stratification report with the validation set
-stratification_report(y, y_train, y_test, y_val=y_val, labels=labels)
+print(stratification_report(y, y_train, y_test, y_val=y_val, labels=labels))
 
 # Plot the stratification chart with the validation set
 create_stratification_chart(y, y_train, y_test, y_val=y_val, labels=labels)

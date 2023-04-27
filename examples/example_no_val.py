@@ -13,7 +13,8 @@ X_train, X_test, y_train, y_test, train_indices, test_indices = multilabel_strat
 check_disjoint_groups(train_indices, test_indices, groups)
 
 # Print stratification report
-stratification_report(y, y_train, y_test, labels=labels)
+print(stratification_report(y, y_train, y_test, labels=labels))
+
 
 # Plot the stratification chart
 create_stratification_chart(y, y_train, y_test, labels=labels)

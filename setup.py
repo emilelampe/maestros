@@ -2,7 +2,8 @@ from setuptools import setup, find_packages
 
 setup(
     name="maestros",
-    version="0.1.0",
+    version="0.1.1",
+    long_description="A package for splitting multilabel datasets into train and test sets, while preserving the distribution of labels and keeping samples from the same group together. Includes a report and chart for visualizing the stratification. Multi-label stratificatin is done through the iterative-stratification package.",
     description="A package for splitting multilabel datasets into train and test sets, while preserving the distribution of labels and keeping samples from the same group together. Includes a report and chart for visualizing the stratification.",
     author="Emile Lampe",
     author_email="emilelampe@outlook.com",

@@ -103,7 +103,7 @@ def label_distribution(y):
 
 def stratification_report(y, y_train, y_test, y_val=None, labels=None):
     """
-    Print a stratification report comparing the label distributions in the complete dataset, training set, and test set.
+    Return a stratification report comparing the label distributions in the complete dataset, training set, and test set.
     
     Parameters
     ----------
@@ -117,6 +117,11 @@ def stratification_report(y, y_train, y_test, y_val=None, labels=None):
         The validation multilabel target matrix.
     labels : list of str, optional (default=None)
         The names of the labels. If None, generic names will be used.
+
+    Returns
+    -------
+    retrun_str : string
+        The stratification report as a string.
     """
     complete_set_distribution = label_distribution(y)
     train_set_distribution = label_distribution(y_train)
@@ -124,12 +129,14 @@ def stratification_report(y, y_train, y_test, y_val=None, labels=None):
     if y_val is not None:
         val_set_distribution = label_distribution(y_val)
 
-    print("\nLabel distribution:")
+    return_str = ""
+
+    return_str += "\nLabel distribution:\n"
     header = "{:<16} {:<10} {:<10}".format("Label", "Complete", "Train")
     if y_val is not None:
         header += " {:<10}".format("Val")
     header += " {:<10}".format("Test")
-    print(header)
+    return_str += header + "\n"
 
     for i, (complete, train, test) in enumerate(zip(complete_set_distribution, train_set_distribution, test_set_distribution)):
         if y_val is not None:
@@ -144,14 +151,14 @@ def stratification_report(y, y_train, y_test, y_val=None, labels=None):
         if y_val is not None:
             row += f"{val:.3f}{' '*5}"
         row += f"{test:.3f}"
-        print(row)
+        return_str += row + "\n"
 
-    print("\nDifferences:")
+    return_str += "\nLabel distribution difference:\n"
     header_diff = "{:<16} {:<15}".format("Label", "Train-Complete")
     if y_val is not None:
         header_diff += " {:<15}".format("Val-Complete")
     header_diff += " {:<15}".format("Test-Complete")
-    print(header_diff)
+    return_str += header_diff + "\n"
 
     for i, (train_diff, test_diff) in enumerate(zip(np.abs(train_set_distribution - complete_set_distribution), np.abs(test_set_distribution - complete_set_distribution))):
         if y_val is not None:
@@ -166,19 +173,21 @@ def stratification_report(y, y_train, y_test, y_val=None, labels=None):
         if y_val is not None:
             row_diff += f"{val_diff:.3f}{' '*10}"
         row_diff += f"{test_diff:.3f}"
-        print(row_diff)
+        return_str += row_diff + "\n"
 
-    print("\nMean Differences:")
+    return_str += "\nMean label distribution difference:\n"
     mean_train_diff = np.mean(np.abs(train_set_distribution - complete_set_distribution))
     if y_val is not None:
         mean_val_diff = np.mean(np.abs(val_set_distribution - complete_set_distribution))
     mean_test_diff = np.mean(np.abs(test_set_distribution - complete_set_distribution))
 
-    print(f"Train-Complete: {mean_train_diff:.3f}")
+    return_str += f"Train-Complete: {mean_train_diff:.3f}\n"
     if y_val is not None:
         mean_val_diff = np.mean(np.abs(val_set_distribution - complete_set_distribution))
-        print(f"Val-Complete: {mean_val_diff:.3f}")
-    print(f"Test-Complete: {mean_test_diff:.3f}")
+        return_str += f"Val-Complete: {mean_val_diff:.3f}\n"
+    return_str += f"Test-Complete: {mean_test_diff:.3f}\n"
+
+    return return_str
 
 def check_disjoint_groups(train_indices, test_indices, groups):
     """
